@@ -1,10 +1,25 @@
+#number of cars
 cars = 100
+
+#amount of space in the car
 space_in_a_car = 4.0
+
+#number of drivers
 drivers = 30
+
+#number of passengers
 passengers = 90
+
+#cars with out a driver
 cars_not_driven = cars - drivers
+
+#cars with a driver
 cars_driven = drivers
+
+#amount of space for passengers
 carpool_capacity = cars_driven * space_in_a_car
+
+#number of passengers in each car
 average_passengers_per_car = passengers / cars_driven
 
 
