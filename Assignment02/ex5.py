@@ -19,10 +19,11 @@ total = age + height + weight
 print(f"If I add {age}, {height}, and {weight} I get {total}.")
 
 #enter value of inches to convert
-inches = 10
+
+inches = input("how many inches do you want to convert to cm, enter: ")
 
 #converting inches to cm
-inches_to_cm = inches * 2.54
+inches_to_cm = float(inches) * 2.54
 
 accurate_cm = round(inches_to_cm)
 
