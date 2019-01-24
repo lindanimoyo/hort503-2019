@@ -1,0 +1,235 @@
+    1  ls
+    2  cd hort503
+    3  ls
+    4  mkdir Assignment04
+    5  ls
+    6  git push
+    7  git status
+    8  ls
+    9  vi lee.txt
+   10  vi lee.txt
+   11  ls
+   12  rm lee.txt
+   13  ls
+   14  ls
+   15  cd ..
+   16  ls
+   17  mkdir codeschool
+   18  ls
+   19  ls
+   20  rmdir codeschool
+   21  ls
+   22  mkdir codeschool
+   23  ls
+   24  git codeschool
+   25  cd codeschool
+   26  ls
+   27  git status
+   28  git init
+   29  vi lee.txt
+   30  git status
+   31  git commit -m "first save"
+   32  git add .
+   33  git commit -m "first save"
+   34  ls
+   35  git status
+   36  git push
+   37  git status
+   38  git log
+   39  ls
+   40  exit
+   41  #!/bin/sh
+   42  #$ -S /bin/bash
+   43  #$ -v PATH=/home/oasis/data/webcomp/RAMMCAP-ann/bin:/usr/local/bin:/usr/bin:/bin
+   44  #$ -v BLASTMAT=/home/oasis/data/webcomp/RAMMCAP-ann/blast/bin/data
+   45  #$ -v LD_LIBRARY_PATH=/home/oasis/data/webcomp/RAMMCAP-ann/gnuplot-install/lib
+   46  #$ -v PERL5LIB=/home/hying/programs/Perl_Lib
+   47  #$ -q all.q
+   48  #$ -pe orte 2
+   49  #$ -e /home/oasis/data/webcomp/web-session/1519194209/1519194209.err
+   50  #$ -o /home/oasis/data/webcomp/web-session/1519194209/1519194209.out
+   51  cd /home/oasis/data/webcomp/web-session/1519194209
+   52  faa_stat.pl 1519194209.fas.0
+   53  /home/oasis/data/NGS-ann-project/apps/cd-hit/cd-hit-est -i 1519194209.fas.0 -d 0 -o 1519194209.fas.1 -c 0.9 -n 8  -r 0 -G 1 -g 1 -b 20 -s 0.0 -aL 0.0 -aS 0.0 -T 4 -M 32000
+   54  faa_stat.pl 1519194209.fas.1
+   55  /home/oasis/data/NGS-ann-project/apps/cd-hit/clstr_sort_by.pl no < 1519194209.fas.1.clstr > 1519194209.fas.1.clstr.sorted
+   56  /home/oasis/data/NGS-ann-project/apps/cd-hit/clstr_list.pl 1519194209.fas.1.clstr 1519194209.clstr.dump
+   57  gnuplot1.pl < 1519194209.fas.1.clstr > 1519194209.fas.1.clstr.1; gnuplot2.pl 1519194209.fas.1.clstr.1 1519194209.fas.1.clstr.1.png
+   58  /home/oasis/data/NGS-ann-project/apps/cd-hit/clstr_list_sort.pl 1519194209.clstr.dump 1519194209.clstr_no.dump
+   59  /home/oasis/data/NGS-ann-project/apps/cd-hit/clstr_list_sort.pl 1519194209.clstr.dump 1519194209.clstr_len.dump len
+   60  /home/oasis/data/NGS-ann-project/apps/cd-hit/clstr_list_sort.pl 1519194209.clstr.dump 1519194209.clstr_des.dump des
+   61  tar -zcf 1519194209.result.tar.gz * --exclude=*.dump --exclude=*.env
+   62  echo hello > 1519194209.ok
+   63  ls
+   64  cd Desktop
+   65  ls
+   66  cd data-shell
+   67  cd ..
+   68  ls -F Desktop
+   69  ls
+   70  cd ..
+   71  ls
+   72  ls -F Desktop
+   73  ls -F Desktop/data-shell
+   74  pwd
+   75  cd Desktop
+   76  pwd
+   77  ls _f data-shell
+   78  cd data-shell
+   79  ls
+   80  ls
+   81  ls -F north-pacific-gyre
+   82  cd 2012-07-03
+   83  ls
+   84  pwd
+   85  mkdir thesis
+   86  ls
+   87  ls - F
+   88  ls -F
+   89  ls
+   90  nano draft.txt
+   91  mv draft.txt thesis/draft.txt
+   92  ls
+   93  cd thesis
+   94  ls
+   95  ls
+   96  ls
+   97  ls
+   98  ls
+   99  ls
+  100  ssh lindani.moyo@kamiak.wsu.edu
+  101  ls
+  102  pwd
+  103  ls
+  104  cd ..
+  105  ls
+  106  cd molecules
+  107  ls -l
+  108  wc cubane.pbd
+  109  wc cubane.pbd
+  110  wc cubane.pdb
+  111  wc *pdb
+  112  ls
+  113  cd ..
+  114  ls
+  115  cd north-pacific-gyre
+  116  ls
+  117  cd 2012-07-03
+  118  ls
+  119  ls
+  120  cd molecules
+  121  cd molecules
+  122  ls
+  123  cd ..
+  124  ls
+  125  cd ..
+  126  ls
+  127  cd molecules
+  128  ls
+  129  wc *pdb
+  130  wc -l *pdb
+  131  exit
+  132  ls
+  133  cd hort
+  134  cd hort503
+  135  ls
+  136  git status
+  137  cd 
+  138  cd Assignment04
+  139  cd Assignment04/
+  140  ls
+  141  cd hort503
+  142  cd Assignment04/
+  143  ls
+  144  git add *.PY
+  145  git add *.py
+  146  ls
+  147  git status
+  148  cd ../Spoon-knife/
+  149  ls
+  150  cd ..
+  151  ls
+  152  rm -r Spoon-Knife
+  153  ls
+  154  ls
+  155  git status
+  156  git commit -m (assign 4 update"
+  157  git commit -m 'assign 4 update'
+  158  ls
+  159  git push
+  160  ls
+  161  exit
+  162  ls
+  163  man chmod
+  164  ps
+  165  kill 5432
+  166  ps
+  167  kill 9428
+  168  ps
+  169  top
+  170  ls
+  171  dir
+  172  dir
+  173  ls
+  174  cd Desktop
+  175  dir
+  176  cd pics
+  177  dir
+  178  hira.jpg
+  179  ls
+  180  cd hort503
+  181  ls
+  182  git status
+  183  git push
+  184  ls
+  185  exit
+  186  ./autogen.sh
+  187  CURL_PREFIX=/usr/local
+  188  SSL_PREFIX=/usr/local/ssl
+  189  # gcc 4.4
+  190  extracflags="-O3 -Wall -D_REENTRANT -fmerge-all-constants" # -funroll-loops -fvariable-expansion-in-unroller -fbranch-target-load-optimize2 -fsched2-use-superblocks -falign-loops=16 -falign-functions=16 -falign-jumps=16 -falign-labels=16"
+  191  # gcc 4.8+
+  192  # extracflags="$extracflags -Ofast -fuse-linker-plugin -ftree-loop-if-convert-stores" # -flto "
+  193  # extracflags="$extracflags -march=native"
+  194  # extracflags="-pg -static -fno-inline-small-functions"
+  195  CFLAGS="-DCURL_STATICLIB -DOPENSSL_NO_ASM -DUSE_ASM -static-libgcc $extracflags"
+  196  # CPPFLAGS=""
+  197  # icon
+  198  windres res/icon.rc icon.o
+  199  ./configure --build=x86_64-w64-mingw32 --with-crypto=$SSL_PREFIX --with-curl=$CURL_PREFIX 	CFLAGS="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="icon.o"
+  200  make
+  201  strip -p --strip-debug --strip-unneeded cpuminer.exe
+  202  if [ -e sign.sh ] ; then . sign.sh; fi
+  203  #!/bin/bash
+  204  if [ "$OS" = "Windows_NT" ]; then     ./mingw64.sh;     exit 0; fi
+  205  ls
+  206  cd hort503-2019
+  207  ls
+  208  cd Assignment02
+  209  ls
+  210  cd ..
+  211  ls
+  212  mkdir Assignment04
+  213  cd Assignment04
+  214  ls
+  215  vim ex18.py
+  216  ls
+  217  ls
+  218  python ex18.py
+  219  python ex18.py
+  220  python ex18.py
+  221  python ex18.py lindani moyo
+  222  python ex18.py lindani litsoe
+  223  vim ex19.py
+  224  ls
+  225  ls
+  226  git add *.py
+  227  ls
+  228  git commit -m "first commit assig04"
+  229  git push
+  230  python ex19.py
+  231  vim ex20.py
+  232  ls
+  233  python ex20.py
+  234  ls
+  235  history > leex.txt

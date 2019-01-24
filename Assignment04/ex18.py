@@ -27,9 +27,9 @@ print_one("First!")
 
 print_none()
 
-from sys import argv
+#from sys import argv
 
-script, hisfirst, hislast = argv
+#script, hisfirst, hislast = argv
 
 #hisfirst = input("what is your first name? ")
 
@@ -39,4 +39,4 @@ def takename(first, last):
     print(f"your first name is {first}")
     print(f"your last name is {last}")
 
-takename(hisfirst, hislast)
+#takename(hisfirst, hislast)
