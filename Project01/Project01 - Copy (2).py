@@ -9,10 +9,12 @@
 .. moduleauthor:: Lindani Moyo
 
 """
-#python Project01.py SP1.fq SP1.trim.fq 30 30 SP1.fasta
+#python Project01.py SP1.fq SP1.trim.fq 30 30
 
 import itertools
+
 from itertools import islice
+
 from sys import argv
 
 def get_read(fq):
@@ -32,12 +34,18 @@ def get_read(fq):
     """
     my_read = [read.strip() for read in islice(fq, 4)]
 
+    # print(my_read)
+
     if my_read:
-        # print("extracting read....")
+        print("extracting read....")
         sequence_id = my_read[0]
+        #print(sequence_id)
         nucleotide_sequence = my_read[1]
+        # print(nucleotide_sequence)
         second_id = my_read[2]
+        # print(second_id)
         quality_score = my_read[3]
+        # print(quality_score)
     else:
         return False
     return [sequence_id, nucleotide_sequence, second_id, quality_score]
@@ -68,35 +76,137 @@ def trim_read_front(read, min_q, min_size):
        desired minimum read length then this function returns False.
     :rtype: a list with four elements
     """
-    # print("trimming read.......")
+    print("trimming read.......")
     nucl_sequence = read[1]
     nucl_seq_list = list(nucl_sequence)
     nucl_seq_list_copy = nucl_seq_list
+    #print(nucl_seq_list)
 
     nucl_score = read[3]
     nucl_score_list = list(nucl_score)
+    #print(nucl_score_list)
 
-    sequence_id = read[0]
-    second_id =read[2]
-    counter = 0
+    # for i in range(len(nucl_seq_list)):
+    #     nucl_seq_list_element = nucl_seq_list[i]
+    #     nucl_seq_list_element = nucl_seq_list_element_copy
+    #     print(nucl_seq_list_element_copy)
+    #     print(nucl_seq_list_element_copy)
+    #     nucl_score_list_element = nucl_score_list[i]
+    #     true_nucl_score_list_element = (ord(nucl_score_list_element) - 33)
+    #     print(true_nucl_score_list_element)
+    #     if true_nucl_score_list_element < min_q:
 
-    for nucl_score_list_element in nucl_score:
-        true_nucl_score_element = (ord(nucl_score_list_element) - 33)
+    for i, j in zip(nucl_seq_list, nucl_score_list):
+        print(i)
+        print(j)
+        nucl_score_list_element = j
+        true_nucl_score_list_element = (ord(nucl_score_list_element) - 33)
+        print(true_nucl_score_list_element)
 
-        if true_nucl_score_element < min_q:
-            counter += 1
+        if true_nucl_score_list_element < min_q:
+            print(true_nucl_score_list_element)
+            del nucl_seq_list_copy[0]
+            print(nucl_seq_list_copy)
+            # del qual_read_list[0]
         else:
-            break
+            raise StopIteration
 
-    trimmed_sequence = nucl_sequence[counter:]
-    trimmed_quality_score = nucl_score[counter:]
+        length_trimmed_read = len(nucl_seq_list_copy)
 
-    if len(trimmed_sequence) < min_size:
-        return False
-    else:
-        return [sequence_id, trimmed_sequence, second_id, trimmed_quality_score]
+        length_untrimmed_read = len(nucl_seq_list_copy)
+
+
+
+
+
+
+        #     print(true_score)
+        #     seq_read_list.remove(i)
+        #     qual_read_list.remove(j)
+        #
+        # print(seq_read_list)
+        # print(qual_read_list)
+        #
+        # if len(seq_read_list) < 30:
+        #     del seq_read_list
+        #     del qual_read_list
+    # print(seq_read_list)
+    # print(qual_read_list)
+
+
+    #
+    #
+    #
+    # if i == 1 and i == j:
+    #     do(x
+    #
+    #
+    #
+    #
+    #
+    # for i in range(len(seq_read_list)):
+    #     nucl = seq_read_list[i]
+    #     true_score = (ord(y) - 33)
+    #
+    #
+    #     if seq_read_list[i]==list2[i]:
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    # for nucl in seq_read_list:
+    #
+    #
+    #
+    #     print(nucl)
+    #     for y in qual_read_list:
+    #         true_score = (ord(y) - 33)
+    #         print(true_score)
+    #         if true_score > 30:
+    #             #print(true_score)
+    #             seq_read_list_trimmed.append(nucl)
+    #             qual_read_list_trimmed.append(y)
+    #         else:
+    #             pass
+    # if len(seq_read_list) < 30:
+    #     del seq_read_list
+    #     del qual_read_list
+    # # print(seq_read_list)
+    # # print(qual_read_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # The main function for the script.
+#
 def main(argv):
     """The main function of this script.
 
@@ -119,50 +229,36 @@ def main(argv):
        - An integer indicating how large a read's nucleotide sequence must
          be after trimming in order to keep it.
     """
-    script, fq_in, fq_out, quality, size, fasta = argv
+    script, fq_in, fq_out, quality, size = argv
 
     quality_limit = int(quality)
+
     min_size = int(size)
-    read_count = 0
-    read_removed_count = 0
 
-    print(f"Opening {fq_in} file for reading...")
+    print("Opening SP1.fq file for reading...")
+
     with open (fq_in, "r") as file_handle:
-        print(f"Opening {fq_out} file for writing...")
-        with open (fq_out, "w") as output_file:
-            print(f"Opening {fasta} file for writing...")
-            with open (fasta, "w") as fasta_outputfile:
-                read = get_read(file_handle)
+        read = get_read(file_handle)
 
-                while read:
-                    trim_read = trim_read_front(read, quality_limit, min_size)
+        while read:
+# readcount = 0
+#             readcount += 1
 
-                    if trim_read == False:
-                        read_removed_count += 1
-                        read = get_read(file_handle)
-                    else:
-                        sequence_id, trimmed_sequence, second_id, trimmed_quality_score = trim_read
-                        read_count += 1
-                        output_file.write(sequence_id)
-                        output_file.write('\n')
-                        output_file.write(trimmed_sequence)
-                        output_file.write('\n')
-                        output_file.write(second_id)
-                        output_file.write('\n')
-                        output_file.write(trimmed_quality_score)
-                        output_file.write('\n')
+            trim_read = trim_read_front(read, quality_limit, min_size)
 
-                        fasta_outputfile.write(f">{sequence_id}")
-                        fasta_outputfile.write('\n')
-                        fasta_outputfile.write(trimmed_sequence)
-                        fasta_outputfile.write('\n')
-                        fasta_outputfile.write('\n')
+            with open (fq_out, "w") as output_file:
+                output.write(sequence_id)
+                output.write('\n')
+                output.write(nucleotide_sequence) #edit to include the trimmed read
+                output.write('\n')
+                output.write(second_id)
+                output.write('\n')
+                output.write(quality_score) #edit to include the Q trimmed read
+                output.write('\n')
 
-                        read = get_read(file_handle)
-
-    print(f"total number of reads found were {read_removed_count + read_count}")
-    print(f"total short reads removed were {read_removed_count}")
-    print(f"total number of reads trimmed and kept were {read_count}")
+            # print("total reads")
+            # print("total short reads removed")
+            # print("")
 
 # Begin the program by calling the main function.
 main(argv)
