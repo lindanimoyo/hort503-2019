@@ -1,10 +1,9 @@
 
 #create a class called cell
-
 class Cell(object):
     """cell class"""
     def __init__(self, x, y, state):
-        self.x = x  # XXX:
+        self.x = x
         self.y = y
         self.state = state
 
@@ -31,8 +30,18 @@ class Cell(object):
         if type(self.state) != int:
             print("type an integer for your first and second argument print")
 
-game = Cell(3, "a", 1)
+def test_cell():
+    game = Cell(3, 2, 0)
+    print(game.get_state())
+    game.set_state(1)
+    print(game.get_state())
 
-game.set_state(1)
+test_cell()
 
-game.get_state()
+#create class called grid
+class Grid(object):
+    """cell Grid"""
+    def __init__(self, grid, rows, cols):
+        self.grid = grid
+        self.rows = rows
+        self.cols = cols
