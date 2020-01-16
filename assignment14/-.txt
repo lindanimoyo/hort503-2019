@@ -1,0 +1,163 @@
+[pragya.asthana@cn112 ~]$ cd /data/hort503/pragya/
+[pragya.asthana@cn112 pragya]$ mkdir newsoftware
+[pragya.asthana@cn112 pragya]$ cd newsoftware/
+[pragya.asthana@cn112 newsoftware]$  wget 'http://eddylab.org/software/hmmer3/3.1b1/hmmer-3.1b1.tar.gz' -O hmmer-3.1b1.tar.gz
+--2019-04-24 11:27:11--  http://eddylab.org/software/hmmer3/3.1b1/hmmer-3.1b1.tar.gz
+Resolving eddylab.org (eddylab.org)... 96.126.110.11, 2600:3c03::f03c:91ff:fec8:383c
+Connecting to eddylab.org (eddylab.org)|96.126.110.11|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5778584 (5.5M) [application/x-gzip]
+Saving to: 'hmmer-3.1b1.tar.gz'
+
+100%[===========================================================================================================================>] 5,778,584   2.14MB/s   in 2.6s
+
+2019-04-24 11:27:14 (2.14 MB/s) - 'hmmer-3.1b1.tar.gz' saved [5778584/5778584]
+
+[pragya.asthana@cn112 newsoftware]$ ls
+hmmer-3.1b1.tar.gz
+[pragya.asthana@cn112 newsoftware]$ gzip -d hmmer-3.1b1.tar.gz
+[pragya.asthana@cn112 newsoftware]$ ls
+hmmer-3.1b1.tar
+[pragya.asthana@cn112 newsoftware]$ tar -xf hmmer-3.1b1.tar
+[pragya.asthana@cn112 newsoftware]$ ls
+hmmer-3.1b1  hmmer-3.1b1.tar
+[pragya.asthana@cn112 newsoftware]$ cd hmmer-3.1b1/
+[pragya.asthana@cn112 hmmer-3.1b1]$ ./configure --prefix=$data/hort503/pragya/software
+configure: Configuring HMMER for your system.
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+configure: Full HMMER source distribution - using full configuration
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables...
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for C compiler vendor... gnu
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for cc_r... gcc
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking for a BSD-compatible install... /usr/bin/install -c
+checking how to run the C preprocessor... gcc -E
+checking for C compiler vendor... (cached) gnu
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking for ranlib... ranlib
+checking for ar... /usr/bin/ar
+checking whether you have a GNU make... yes, you do; and we assume you will use it!
+checking whether C compiler accepts -fstrict-aliasing... yes
+checking for gcc architecture flag...
+checking for x86 cpuid 0 output... 16:756e6547:6c65746e:49656e69
+checking for x86 cpuid 1 output... 50654:14200800:7ffefbff:bfebfbff
+checking whether C compiler accepts -march=pentium2... no
+checking whether C compiler accepts -mcpu=pentium2... no
+checking whether C compiler accepts -mpentium2... no
+checking whether C compiler accepts -march=pentiumpro... no
+checking whether C compiler accepts -mcpu=pentiumpro... no
+checking whether C compiler accepts -mpentiumpro... no
+checking for gcc architecture flag... unknown
+checking whether C compiler accepts -O3 -fomit-frame-pointer -fstrict-aliasing... yes
+checking for gcc option to produce PIC... -fPIC
+checking whether C compiler accepts -msse2... yes
+checking compiler support for sse2 cast functions... yes
+checking whether SSE2 is supported... yes
+checking whether _MM_SET_FLUSH_ZERO_MODE is supported... yes
+configure: Activating Intel/AMD SSE optimized DP implementation
+checking compiler support --start-group... yes
+checking for gzip... /usr/bin/gzip
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/sysctl.h usability... yes
+checking sys/sysctl.h presence... yes
+checking for sys/sysctl.h... yes
+checking for unistd.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking whether byte ordering is bigendian... no
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for off_t... yes
+checking for mkstemp... yes
+checking for popen... yes
+checking for strcasecmp... yes
+checking for times... yes
+checking for getpid... yes
+checking for sysctl... yes
+checking for sysconf... yes
+checking for getcwd... yes
+checking for stat... yes
+checking for fstat... yes
+checking for ntohs... yes
+checking for ntohl... yes
+checking for htons... yes
+checking for htonl... yes
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+configure: creating ./config.status
+config.status: creating documentation/Makefile
+config.status: creating documentation/man/Makefile
+config.status: creating src/Makefile
+config.status: creating testsuite/Makefile
+config.status: creating profmark/Makefile
+config.status: creating src/impl_sse/Makefile
+config.status: creating easel/miniapps/Makefile
+config.status: creating easel/testsuite/Makefile
+config.status: creating easel/Makefile
+config.status: creating libdivsufsort/Makefile
+config.status: creating Makefile
+config.status: creating src/p7_config.h
+config.status: creating easel/esl_config.h
+config.status: creating libdivsufsort/divsufsort.h
+config.status: linking src/impl_sse to src/impl
+
+
+HMMER configuration:
+     compiler:             gcc -O3 -fomit-frame-pointer -fstrict-aliasing -msse2 -pthread -fPIC
+     host:                 x86_64-unknown-linux-gnu
+     linker:
+     libraries:
+     DP implementation:    sse
+
+[pragya.asthana@cn112 hmmer-3.1b1]$ make install
+/usr/bin/install -c -d /hort503/pragya/software/bin
+/usr/bin/install: cannot create directory '/hort503': Permission denied
+make: *** [install] Error 1
+[pragya.asthana@cn112 hmmer-3.1b1]$ cd /data/
+adam/           cas/            clark/          du_toit/        holder/         kamiak/         mao/            peters-friesen/ ssl/            voulgarakis/
+beegfs/         catalysis/      cornejo/        ficklin/        hort503/        katz/           moffett/        pgfp/           storfer/        winuthayanon/
+busch/          cereo/          cppc/           friesen/        hort550/        kelley/         oatley/         roberts/        tanner/
+cahnrs/         chen/           driskell/       gleason/        hydra/          lee/            pappu/          shelden/        vcea/
+[pragya.asthana@cn112 hmmer-3.1b1]$ cd /data/hort503/pragya/software
+bash: cd: /data/hort503/pragya/software: No such file or directory
+[pragya.asthana@cn112 hmmer-3.1b1]$ cd bin/
+bash: cd: bin/: No such file or directory
